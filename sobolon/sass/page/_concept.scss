@@ -1,0 +1,53 @@
+@use "../setting/color";
+@use "../setting/size";
+@use "../setting/font";
+@use "../mixin/mixin";
+
+.concept{
+  
+}
+
+.concept__inner{
+
+}
+
+.concept__whole{
+  //position: relative;
+  display: flex;
+  margin-top: 64px;
+}
+
+.concept__image{
+  width: 50%;
+  
+  a{
+    
+    img{
+
+    }
+  
+  }
+  
+}
+
+.concept__content{
+  //position: absolute;
+  //width: 521 / 1200 * 100%;
+  width: 50%;
+  padding-left: 80px;
+  margin: auto 0;
+  
+  
+  
+  // top: -50%;
+  // transform: translateY(50%);
+}
+
+.concept__title{
+  font-size: 20px;
+  font-weight: bold;
+}
+
+.concept__lead{
+  padding-top: 48px;
+}

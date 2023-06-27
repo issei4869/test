@@ -1,0 +1,110 @@
+@use "../setting/color";
+@use "../setting/size";
+@use "../setting/font";
+@use "../mixin/mixin";
+
+
+.header{
+  background: #fff;
+  height: 70px;
+  position: fixed;
+  width: 100%;
+  //box-shadow: 0 3px 3px rgba(#000,0.16);
+  z-index: 200;
+  top: 0;
+  left: 0;
+
+  @include mixin.mq('sp') {
+    height: 60px;
+  }
+}
+
+.header__inner{
+  //横並び
+  display: flex;
+  //（70pxの中での）上下中央
+  align-items: center;
+  //親headerの70pxを継承
+  height: inherit;
+
+}
+
+.header__logo{
+  width: 120px;
+
+  // @include mixin.mq('tab') {
+  //   padding-left: 24px;
+  // }
+
+  img{
+    //画像は基本インラインブロックだが、余計な隙間ができたりするのでblockでそれを防ぐ
+    display: block;
+  }
+
+  /*hover(透明)設定************/
+  cursor: pointer;
+  transition: all 0.3s ease 0s;
+  &:hover{
+    opacity: 0.6;
+  }
+  /***************************/
+
+}
+
+.header__nav{
+  //横並び
+  display: flex;
+  //上下中央
+  align-items: center;
+  //右から左に押す、間隔を離すイメージ、rightで逆
+  margin-left: auto;
+
+  font-family: font.$font-en; 
+
+  // @include mixin.mq('tab') {
+  //   // padding-left: 24px;
+  //   padding-right: 24px;
+  // }
+
+  @include mixin.mq('sp') {
+    display: none;
+  }
+
+  li{
+    //最初の要素以外にmargin-leftを適応させる
+    &:not(:first-child){
+      margin-left: 48px;
+    }
+    a{
+      color: #333333;
+      display: inline-block;
+      //下線なし
+      text-decoration: none;
+      position: relative;
+
+      /*hover設定(色変更)***********/
+	    transition: all 0.3s ease 0s;
+	    cursor: pointer;
+      &:hover {
+        color: color.$color-main;
+      }
+      /****************************/
+
+      /*hover設定(アンダーライン)******/
+      &::after {
+        content: "";
+        position:absolute;
+        //赤下線とCardの間の距離
+        bottom: -8px;
+        left: 0;
+        //aタグの幅と同じにしたい
+        width: 100%;
+        height: 2px;
+        background: transparent; //透明背景の棒
+        transition: all 0.3s ease 0s;
+      }
+
+    }
+  }
+
+}

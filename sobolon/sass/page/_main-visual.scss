@@ -1,0 +1,72 @@
+@use "../setting/color";
+@use "../setting/size";
+@use "../setting/font";
+@use "../mixin/mixin";
+
+.main-visual{
+  position: relative;
+  margin-top: 70px;
+
+  @include mixin.mq('sp') {
+    margin-top: 60px;
+  }
+}
+
+// .main-visual__inner{
+//   position: relative;
+// }
+
+.main-visual__image{
+  @include mixin.mq('pc') {
+    padding-top: (660 / 1200) * 100%;
+    // height: 660px;
+    // width: 100%;
+    //画像の繰り返しをなくし、どのレスポンシブでも中央に配置する
+    background: url(../img/top.png) no-repeat top right / ((990 / 1200) * 100%);
+    // position: relative;
+    //margin-top: 70px;
+  }
+ 
+  @include mixin.mq('sp') {
+    padding-top: (414 / 345) * 100%;
+    background: url(../img/top_sp.png) no-repeat center center / cover;
+    //margin-top: 60px;
+    // height: 414px;
+    //width: 100%;
+  }
+}
+
+.main-visual__content{
+  @include mixin.mq('pc') {
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    background: #fff;
+    padding: 92px 40px ;
+  }
+  @include mixin.mq('sp') {
+    margin-top: 40px;
+  }
+}
+
+.main-visual__title{
+  font-size: 26px;
+  font-weight: bold;
+  //line-height: (44 / 26);
+  br{
+    @include mixin.mq('sp') {
+      display: none;
+    }
+  }
+}
+
+.main-visual__lead{
+  margin-top: 18px;
+  //line-height: (27 / 16);
+
+  // @include mixin.mq('sp') {
+  //   margin-top: 32px;
+  // }
+}
+

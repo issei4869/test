@@ -1,0 +1,84 @@
+@use "../setting/color";
+@use "../setting/size";
+@use "../setting/font";
+@use "../mixin/mixin";
+
+.products{
+  
+}
+
+.products__inner{
+  max-width: calc(1280px - 170px - 170px);
+  //max-width: 100%;
+  margin: 0 auto;
+  padding: 0 40px;
+  box-sizing: content-box;
+}
+
+.products__card-items{
+  margin-top: 64px;
+  //flexboxを使った横並び
+  display: flex;
+  //改行
+  flex-wrap: wrap;
+}
+
+.products__card-list{
+  //1カード横の長さを指定（余白なしだと1カード33.3%そこから余白2つ分を3で割った数を引く）
+  width: calc(33.3% - 80px * 2 / 3);
+  background: #fff;
+  //タブレット版と余白がバッティングしないように区別する
+  @include mixin.mq('pc') { 
+    //1,4,7,10つ目(一番左)のカード以降以外にmargin-leftを適応させる
+    &:not(:nth-child(3n + 1)){
+      margin-left: 80px;
+    }
+  }
+  
+}
+
+.products__card-item{
+
+    &:hover {
+      img{
+        cursor: pointer; //ホバー時カーソルをポインタに
+        /* ホバー時1.1倍サイズに拡大 */
+        transform: scale(1.1);
+      }
+    }
+
+}
+
+.products__card-image{
+  overflow: hidden; //拡大した画像をはみ出さないようにする
+  img{
+    width: 100%;
+    transition: all 0.3s ease 0s; //ホバー時と解除時のアニメーション
+  }
+
+}
+
+.products__content{
+  margin-top: 24px;
+}
+
+.products__card-title{
+  width: 100%;
+  font-size: 14px;
+  line-height: (24 / 14);
+}
+
+.products__card-yen{
+  font-size: 14px;
+  color: #989898;
+  margin-top: 18px;
+}
+
+a{
+  display: block;
+  text-decoration: none;
+}
+
+.products__footer{
+
+}

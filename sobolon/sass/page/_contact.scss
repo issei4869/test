@@ -1,0 +1,484 @@
+@use "../setting/color";
+@use "../setting/size";
+@use "../setting/font";
+@use "../mixin/mixin";
+
+.contact{
+  //display: block;
+  //color: color.$color-text2;
+  background: url(../img/contact.png) center center / cover;
+  padding: 72px 40px 86px;
+  //position: relative;
+  margin-top: 225px;
+
+  .section-title{
+    color: color.$color-main;
+  }
+
+  input[type="text"],
+  input[type="email"],
+  textarea{
+    width: 100%;
+    border: 0;
+    font-size: 16px;
+    padding: .2em .5em;
+    box-shadow: 5px 6px 15px rgba(96, 96, 96, 0.16);
+    border-radius: 2px;
+  }
+
+  input[type="text"],
+  input[type="email"]{
+    height: 40px;
+  }
+
+  textarea{
+    min-height: 122px;
+    resize: vertical; //横には拡がらなくなる
+  }
+}
+
+.contact-text{
+  font-size: 14px;
+  letter-spacing: .1em;
+  text-align: center;
+}
+
+.contact-text-inline{
+  font-size: 16px;
+  color: #E7728E;
+}
+
+.contact-form{
+  margin-top: 56px;
+}
+
+.contact-list{
+  max-width: 510px;
+  margin: 18px auto 0;
+}
+
+// .is-maincolor{
+//   color: color.$color-main;
+// }
+
+// .contact__inner{
+//   max-width: calc(1280px - 385px - 385px);
+//   //max-width: 100%;
+//   margin: 0 auto;
+//   padding: 0 40px;
+//   box-sizing: content-box;
+// }
+
+// .contact__head{
+
+// }
+
+// .contact__form{
+//   margin: 80px auto 0;
+//   // width: 800px;
+//   // max-width: 100%;
+//   // padding: 60px;
+
+//   // @include mixin.mq('sp') {
+//   //   margin-top: 40px;
+//   //   padding: 24px;
+//   // }
+// }
+
+.contact-item{
+  display: flex;
+
+  &:not(:first-child){
+    margin-top: 32px;
+
+    @include mixin.mq('sp') {
+      margin-top: 30px;
+    }
+  }
+
+  @include mixin.mq('sp') {
+    display: block;
+  }
+}
+
+.contact-item-inline{
+  font-size: 12px;
+  color: #E7728E;
+  vertical-align: super;//確認
+  line-height: 1;//確認
+}
+
+.contact-item-title{
+  //width: 180px;
+  flex: 0 1 100%;
+  height: 40px;
+  //padding: 0;
+  //margin-left: 18px;//初期化
+  background: rgba(62, 161, 209, 0.7);
+  color: #fff;
+  font-size: 18px;
+  line-height: 40px;
+  text-align: center;
+  padding-left: 10px;
+  position: relative;
+
+  &::after{
+    content: "";
+    display: block;
+    position: absolute;
+    top: 0;
+    right: -8px;
+    border-style: solid;
+    border-width: 20px 0 20px 8px;
+    border-color: transparent transparent transparent rgba(62, 161, 209, 0.7);
+  }
+
+  @include mixin.mq('sp') {
+    width: 100%;
+  }
+
+  // label{
+  //   font-weight: 700;
+
+  //   &.is-required{
+  //     display: inline-block;
+  //     position: relative;
+
+  //     &::after{
+  //       content: "*";
+  //       position: absolute;
+  //       top: calc(100% + 2px);
+  //       left: 0;
+  //       font-size: 14px;
+  //       font-weight: 700;
+  //       color: #E7728E;
+  //       text-align: center;
+  //       border-radius: 4px;
+  //       padding: 3px 8px;
+  //       line-height: 1;
+
+  //       @include mixin.mq('sp') {
+  //         top: 50%;
+  //         transform: translateY(-50%);
+  //         left: calc(100% + 6px);
+  //         width: 44px;
+  //       }
+  //     }
+  //   }
+  // }
+}
+
+.contact-item-input{
+  flex: 0 0 320px;
+  //width: calc(100% - 180px);
+  margin-left: 18px;
+  // margin: 0;//初期化
+  // padding: 0;//初期化
+
+  @include mixin.mq('sp') {
+    width: 100%;
+    margin-top: 5px;
+  }
+
+  // [type="text"]{
+  //   /*ボックスの初期化（各ブラウザで初期の見え方が違うため）*/
+  //   box-shadow: 5px 6px 15px rgba(96, 96, 96, 0.16);
+  //   background: #fff;
+  //   padding: 10px 16px;
+  //   appearance: none;
+  //   border-radius: 2;
+  //   color: inherit;//親の要素を継承
+  //   font-family: inherit;
+  //   font-size: 14px;
+  //   width: 100%;
+  //   border: none;
+  //   /*---------------------------*/
+  // }
+
+  // [type="email"]{
+  //   /*ボックスの初期化（各ブラウザで初期の見え方が違うため）*/
+  //   box-shadow: 5px 6px 15px rgba(#60606029,1);
+  //   background: #fff;
+  //   padding: 10px 16px;
+  //   appearance: none;
+  //   border-radius: 2;
+  //   color: inherit;//親の要素を継承
+  //   font-family: inherit;
+  //   font-size: 14px;
+  //   width: 100%;
+  //   border: none;
+  //   /*---------------------------*/
+  // }
+
+  // textarea{
+  //   height: 122px;
+  //   /*ボックスの初期化（各ブラウザで初期の見え方が違うため）*/
+  //   box-shadow: 5px 6px 15px rgba(#60606029,1);
+  //   background: #fff;
+  //   padding: 10px 16px;
+  //   appearance: none;
+  //   border-radius: 2;
+  //   color: inherit;//親の要素を継承
+  //   font-family: inherit;
+  //   font-size: 14px;
+  //   width: 100%;
+  //   border: none;
+  //   /*---------------------------*/
+  //   resize: none;
+  // }
+}
+
+.contact-radio-wrap{
+  display: inline-flex;//後で確認
+  border: solid 1px #fff;
+  border-radius: 1px;
+  box-shadow: 5px 6px 15px rgba(96, 96, 96, 0.16);
+}
+
+.contact-radio{
+  position: relative;
+}
+
+.contact-radio-input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+
+  &:checked + .contact-radio-part{
+    background-color: color.$color-main;
+    color: #fff;
+    border-radius: 1px;
+  }
+
+  &:focus + .contact-radio-part{
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+}
+
+.contact-radio-part{
+  display: block;
+  background: #fff;
+  color: color.$color-main;
+  height: 38px;
+  line-height: 38px;
+  width: 80px;
+  text-align: center;
+}
+
+.contact-footer{
+  text-align: center;
+  margin-top: 20px;
+}
+
+.contact-footer-text{
+  display: inline-flex;
+}
+
+.contact-privacy{
+  position: relative;
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  vertical-align: middle;
+}
+
+.contact-privacy-part{
+  display: inline-block;
+  height: 22px;
+  width: 22px;
+  border: solid 1px color.$color-main;
+  background: #fff;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+
+.contact-privacy-input{
+  position: absolute;
+  top: 0;
+  left: 0;
+  opacity: 0;
+
+  &:checked + .contact-privacy-part{
+    width: 10px;
+    border-top: 0;
+    border-left: 0;
+    background-color: transparent;
+    transform: rotate(45deg);
+    top: -5px;
+    left: 5px;
+  }
+
+  &:focus + .contact-privacy-part{
+    outline: -webkit-focus-ring-color auto 1px;
+  }
+
+  &:checked:focus + .contact-privacy-part{
+    outline: none;
+  }
+}
+
+.contact-privacy-link{
+  color: color.$color-main;
+  text-decoration: underline;
+}
+
+.contact-footer-submit{
+  margin-top: 46px;
+}
+
+.-submit{
+  background: color.$color-main;
+  transition: .4s;
+  color: #fff;
+}
+
+// .contact-form__radio{
+//   display: flex;
+
+//   label{
+//     display: block;
+//     color: color.$color-main;
+//     background: #FFFFFF;
+//     margin-top: 32px;
+//     width: 150px;
+//     //width: calc(100% - 180px);
+//     margin: 0;//初期化
+//     padding: 0;//初期化
+//     // padding: 10px;
+//     // margin: 10px;
+//     box-sizing: border-box;
+//     text-decoration: none;
+//     cursor: pointer;
+
+//     @include mixin.mq('sp') {
+//       margin-top: 26px;
+//     }
+//   }
+
+//   // [type="radio"]{
+//   input{
+//     display: none;
+//   }
+
+//   //チェックされたときだけ青丸がつくようにする
+//   //[type="radio"]:checked + label{
+//   input:checked + label{
+//     color: #FFFFFF;
+//     background: color.$color-main;
+//     // &::after{
+//     //   display: block;
+//     // }
+//   }
+
+// }
+
+  // span{
+  //   display: inline-block;
+  //   padding-left: 26px;
+  //   position: relative;
+  //   margin-right: 36px;
+
+  //   @include mixin.mq('sp') {
+  //     margin-bottom: 8px;
+  //     margin-right: 20px;
+  //   }
+
+  //   &::before{
+  //     content: "";
+  //     width: 100%;
+  //     height: 100%;
+  //     border: 1px solid #707070;
+  //     position: absolute;
+  //     left: 0;
+  //     top: 0;
+  //     background: #fff;
+  //     color: color.$color-main;
+  //     border-radius: 1px;      
+  //   }
+
+  //   &::after{
+  //     content: "";
+  //     width: 100%;
+  //     height: 100%;
+  //     position: absolute;
+  //     left: 0;
+  //     top: 0;
+  //     background: color.$color-main;
+  //     color: color.$color-text1;
+  //     display: none;
+  //   }
+  // }
+
+
+// .contact-footer{
+//   margin-top: 63px;
+//   text-align: center;
+
+//   @include mixin.mq('sp') {
+//     margin-top: 40px;
+//   }
+
+//   [type="checkbox"]{
+//     display: none;
+//   }
+
+//   span{
+//     display: inline-block;
+//     padding-left: 49px;
+//     color: #000;
+//     position: relative;
+
+//     &::before{
+//       content: "";
+//       width: 25px;
+//       height: 25px;
+//       background: #fff;
+//       border: 1px solid color.$color-main;
+//       position: absolute;
+//       top: 50%;
+//       transform: translateY(-50%);
+//       left: 0;
+//     }
+
+//     &::after{
+//       content: "";
+//       width: 25px;
+//       height: 25px;
+//       position: absolute;
+//       top: 50%;
+//       transform: translateY(-50%);
+//       left: 0;
+//       background: transparent url(../../img/checkbox.png) no-repeat center center / contain;
+//       display: none;
+//     }
+//   }
+
+//   //チェックされたときだけ青丸がつくようにする
+//   [type="checkbox"]:checked + span{
+//     &::after{
+//       display: block;
+//     }
+//   }
+
+//   a{
+//     display: inline-block;
+//     font-weight: 700;
+//     color: color.$color-main;
+//     text-decoration: underline;
+
+//     /*hover(透明)設定************/
+//     cursor: pointer;
+//     transition: all 0.3s ease 0s;
+//     &:hover{
+//       opacity: 0.6;
+//     }
+// 	  /***************************/
+//   }
+// }
+
+// .contact-footer__submit{
+//   margin-top: 30px;
+//   text-align: center;
+// }

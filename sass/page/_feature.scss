@@ -1,0 +1,64 @@
+@use "../setting/color";
+@use "../setting/size";
+@use "../setting/font";
+@use "../mixin/mixin";
+
+.feature{
+  
+}
+
+.feature__inner{
+
+}
+
+.feature__card-items{
+  margin-top: 64px;
+  //flexboxを使った横並び
+  display: flex;
+  //改行
+  flex-wrap: wrap;
+}
+
+.feature__card-list{
+  //1カード横の長さを指定（余白なしだと1カード33.3%そこから余白2つ分を3で割った数を引く）
+  width: calc(33.3% - 90px * 2 / 3);
+  background: #fff;
+  box-shadow: 3px 3px 15px  rgba(#60606029, 1);
+  transition: all 0.3s ease 0s;
+  //タブレット版と余白がバッティングしないように区別する
+  @include mixin.mq('pc') { 
+    //1,4,7,10つ目(一番左)のカード以降以外にmargin-leftを適応させる
+    &:not(:nth-child(3n + 1)){
+      margin-left: 90px;
+    }
+  }
+
+}
+
+.feature__card-item{
+  
+
+    &:hover {
+      img{
+        cursor: pointer; //ホバー時カーソルをポインタに
+        /* ホバー時1.1倍サイズに拡大 */
+        transform: scale(1.1);
+      }
+    }
+}
+
+
+.feature__card-image{
+  overflow: hidden; //拡大した画像をはみ出さないようにする
+  img{
+    width: 100%;
+    transition: all 0.3s ease 0s; //ホバー時と解除時のアニメーション
+  }
+}
+
+.feature__card-text{
+  text-align: center;
+  padding: 32px 0;
+  line-height: (27 / 16);
+}
+

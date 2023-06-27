@@ -1,0 +1,121 @@
+@use "../setting/color";
+@use "../setting/size";
+@use "../setting/font";
+@use "../mixin/mixin";
+
+.drawer-icon{
+  position: fixed; //常時固定
+  top: 22px;//本来の一番上の場所から20px下へ
+  right: 16px;//本来の一番右の場所から16px左へ
+  z-index: 300; //重なりの順位、数値が高いほど前へ
+  display: none;
+  //transition: 項目 アニメーションの時間 アニメーションの種類 クリックして何秒後に動くか;
+  transition: transform 0.5s ease 0s;
+
+  @include mixin.mq('sp') {
+    display: block;
+  }
+  
+  //ドロワーを開いた時のアイコン（☓の作成）
+  &.is-active{
+    .drawer-icon__bar1{
+      transform: rotate(-45deg); //バツ印
+      top: 6px;
+      left: 4px;
+    }
+    
+    .drawer-icon__bar2{
+      display: none;
+    }
+    
+    .drawer-icon__bar3{
+      transform: rotate(45deg); //バツ印
+      top: 6px;
+      left: 4px;
+    }
+  }
+}
+
+.drawer-icon__bars{
+  width: 29px;
+  height: 18px;
+  display: block;
+  position: relative;
+}
+
+.drawer-icon__bar1,
+.drawer-icon__bar2,
+.drawer-icon__bar3{
+  position: absolute;
+  width: 29px;
+  height: 2px;
+  background: color.$color-main;
+  top: 0;
+  left: 0;
+}
+
+.drawer-icon__bar1{
+  top: 0;
+}
+
+.drawer-icon__bar2{
+  top: 8px;
+}
+
+.drawer-icon__bar3{
+  top: 16px;
+}
+
+.drawer-content{
+  width: 270px;
+  height: 100%;
+  margin-top: 60px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  background: color.$color-main;
+  //box-shadow: 0 0 3px rgba(#000, 0.16);
+  z-index: 299; //ドロワーアイコンよりは小さく
+  transform: translateX(105%);
+  //transition: 項目 アニメーションの時間 アニメーションの種類 クリックして何秒後に動くか;
+  transition: transform 0.5s ease 0s;
+
+  &.is-active{
+    transform: translateX(0);
+  }
+}
+
+.drawer-content__items{
+  margin-top: 25px;
+}
+
+.drawer-content__item{
+  //border-bottom: 1px dotted #707070;
+  a{
+    display: block;
+    color: #fff;
+    text-decoration: none;
+    padding: 14px 15px;
+    position: relative;
+    font-size: 18px;
+    font-weight: bold;
+    text-align: right;
+  }
+}
+
+.drawer-background{
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  //background: rgba(#000, 0.8);
+  z-index: 298;
+  display: none;
+
+  &.is-active{
+    display: block;
+  }
+}
+
+
